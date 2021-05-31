@@ -84,7 +84,6 @@
         // const loadImg = (imgs) => {
         //     img.src = imgs.pic;
         // };
-
     
         let isPlaying = false;
 
@@ -114,10 +113,8 @@
         });
         
         //     play.addEventListener('click', () =>{
-        //     isPlaying ? pauseMusic() : playMusic();
-            
+        //     isPlaying ? pauseMusic() : playMusic();            
         // });
-
         // change the music Data
        
         songIndex = 0;
@@ -135,14 +132,9 @@
             songIndex = (songIndex - 1 + songs.length) % songs.length;
             loadSong(songs[songIndex]);
             playMusic();
-
         };
-
-
         next.addEventListener('click', nextSong);
         prev.addEventListener('click', prevSong);
-        
     </script>
-
 </body>
 </html>
