@@ -48,6 +48,7 @@ html{
     width: 50vh;
     height: 50vh;
     margin: auto;
+    object-fit: cover;
 }
 img{
     width: 100%;
