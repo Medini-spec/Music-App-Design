@@ -48,20 +48,6 @@ html{
     width: 25rem;
     height: 25rem;
     margin: auto;
-/* .imagecontainer {
-    width: 25rem;
-    height: 25rem;
-    margin: auto;
-}
-
-img{
-    /*make the image object fit and circle*/
-/*     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit:cover;
-    box-shadow: 0 1.2rem 3rem 0.5rem rgba(0, 0, 0, 0.4);
-} */ 
 }
 img{
     width: 100%;
