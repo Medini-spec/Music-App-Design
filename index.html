@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=----, initial-scale=1.0">
+    <title>Music App Design</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main_div">
+        <div class="music_container">
+            <h2 id="title">CAT MEAW</h2>
+            <h3 id="artist">The Loyalist</h3>
+            <div class="img_container">
+                <!-- <img src="https://i.pinimg.com/originals/51/33/e7/5133e79b785c6bd377025e363f24b79d.png"> -->
+                <img src="https://images.all-free-download.com/images/graphicthumb/cute_cat_06_hd_picture_170909.jpg">
+                <!-- <img src="https://i.pinimg.com/736x/19/55/48/195548510f8764f0c5245cd14d2adb16.jpg">
+                <img src="https://thumbs.dreamstime.com/b/beautiful-single-flower-red-gazania-single-flower-gazania-splendens-genus-asteraceae-object-white-isolated-196540979.jpg"> -->
+
+            </div>
+            <audio src="https://2u039f-a.akamaihd.net/downloads/ringtones/files/dl/mp3/cat-3338.mp3">     
+                </audio>
+             <!----Controls-------->
+             <div class="music_controls">
+                <i class="fas fa-backward" id="prev" title="Previous"></i>
+                <i class="fas fa-play main_button" id="play" title="Play"></i>
+                <i class="fas fa-forward" id="next" title="Next"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        const music = document.querySelector("audio");
+        const img = document.querySelector("img");
+        const play = document.getElementById("play");
+        const artist = document.getElementById("artist");
+        const title = document.getElementById("title");
+        const prev = document.getElementById("prev");
+        const next = document.getElementById("next");
+
+        const songs = [
+        {
+           
+            name: "https://2u039f-a.akamaihd.net/downloads/ringtones/files/dl/mp3/cat-3338.mp3",
+            title: "CAT MEAW",
+            artist: "the loyalist",
+            pic: "https://images.all-free-download.com/images/graphicthumb/cute_cat_06_hd_picture_170909.jpg",
+        },
+        {
+            name: "https://quz1yp-a.akamaihd.net/downloads/ringtones/files/dl/mp3/airtel-4g-dream-tone-2229.mp3",
+            title: "Airtel",
+            artist: "Airtel Ringtone",
+            pic: "https://i.pinimg.com/736x/19/55/48/195548510f8764f0c5245cd14d2adb16.jpg",
+
+        },
+        {
+            name: "https://d6cp9b00-a.akamaihd.net/downloads/ringtones/files/dl/mp3/the-shimmer-of-sindhu-mohenjo-daro-ringtone-51257.mp3",
+            title: "Melody",
+            artist: "Melody Music",
+            pic: "https://thumbs.dreamstime.com/b/beautiful-single-flower-red-gazania-single-flower-gazania-splendens-genus-asteraceae-object-white-isolated-196540979.jpg",
+            
+        },
+        ];
+
+        // const imgs = [
+        //     {
+        //         pic: "https://images.all-free-download.com/images/graphicthumb/cute_cat_06_hd_picture_170909.jpg",
+        //     },
+        //     {
+        //         pic: "https://i.pinimg.com/736x/19/55/48/195548510f8764f0c5245cd14d2adb16.jpg",
+        //     },
+        //     {
+        //         pic: "https://thumbs.dreamstime.com/b/beautiful-single-flower-red-gazania-single-flower-gazania-splendens-genus-asteraceae-object-white-isolated-196540979.jpg",
+        //     },
+        // ];
+        const loadSong = (songs) => {
+            title.textContent = songs.title;
+            artist.textContent = songs.artist;
+            music.src = songs.name;
+            img.src = songs.pic;
+           
+        };
+
+        // const loadImg = (imgs) => {
+        //     img.src = imgs.pic;
+        // };
+
+    
+        let isPlaying = false;
+
+        // for play function
+        const playMusic = () => {
+            isPlaying = true;
+            music.play(); 
+            play.classList.replace("fa-play" ,"fa-pause");
+            img.classList.add("anime");
+        };
+
+        // for pause function
+         const pauseMusic = () => {
+            isPlaying = false;
+            music.pause(); 
+            play.classList.replace("fa-pause" ,"fa-play");
+            img.classList.remove("anime");
+        };
+
+        play.addEventListener('click', () => {
+            if(isPlaying){
+                pauseMusic();
+            }
+            else{
+                playMusic();
+            }
+        });
+        
+        //     play.addEventListener('click', () =>{
+        //     isPlaying ? pauseMusic() : playMusic();
+            
+        // });
+
+        // change the music Data
+       
+        songIndex = 0;
+        //  loadSong(songs[2]);
+
+        const nextSong = () => {
+            // songIndex++;
+            songIndex = (songIndex + 1) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+        };
+
+        const prevSong = () => {
+            // songIndex++;
+            songIndex = (songIndex - 1 + songs.length) % songs.length;
+            loadSong(songs[songIndex]);
+            playMusic();
+
+        };
+
+
+        next.addEventListener('click', nextSong);
+        prev.addEventListener('click', prevSong);
+        
+    </script>
+
+</body>
+</html>
